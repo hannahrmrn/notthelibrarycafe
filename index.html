@@ -25,20 +25,177 @@
         <h1>Not the Library Cafe &#128548;&#127959; &#127981; &#127970; &#127970; </h1>
     </div>
 
-    <div class="row">
+  <div class="row">
   <div class="col-sm-9" id = "map"></div>
-  <div class="col-sm-3"><p>This is the sidebar</p></div>
-</div>
+  <div class="col-sm-3 text-center">
+      <div class="btn-group-vertical">
+      <button type="button" id = "all" class="btn btn-primary" onclick="FireButton">All</button>
+      <button type="button" id = "discounts" class="btn btn-primary" onclick="FireButton">Imperial Discounts</button>
+      <button type="button" class="btn btn-primary">Snacks</button>
+      <button type="button" class="btn btn-primary">Full Meals</button>
+      <button type="button" class="btn btn-primary">Sweet</button>
+      <button type="button" class="btn btn-primary">Savoury</button>
+      <h1>Selected element is </h1><h1 id="demo">Not hello world</h1>
+      </div>
+  </div>
+  </div>
 
 
 
     <script>
+
+      var arrays = {};
+      var selectedElement = "All"
+      arrays.discounts  = [[" ", 51.800052, -0.077467, 4.2],
+                [" ", 51.480226, 0.069589, 0],
+                [" ", 51.48808, -0.40301, 4.5],
+                [" ", 51.341246, -0.061708, 9.5],
+                [" ", 51.548934, -0.375026, 3.9],
+                [" ", 51.602689, 0.228719, 3.8],
+                [" ", 51.480955, -0.365949, 4.3],
+                [" ", 51.750365, -0.34032, 12.1],
+                [" ", 51.563842, 0.207556, 3.8],
+                [" ", 51.69484, -0.386208, 4.1]]
+
+      arrays.snacks  = [[" ", 51.800052, -0.077467, 4.2]]
+
+      document.getElementById("discounts").addEventListener("click", function(){
+          document.getElementById("demo").innerHTML = "Discounts";
+          selectedElement = "discounts"
+          setMarkers()
+      });
+
+      function setMarkers(a) {///where a is arrays
+        for (i = 0; i < arrays[a]; i++) {
+          var marker = new google.maps.Marker({
+            position: arrays[a][i][3],
+            map: map,
+            icon: markerIcon,
+             label: {
+               text: arrays[a][i][1],
+               fontSize: "16px",
+             }
+          });
+        }
+      }
+
       function initMap() {
+        var styledMapType = new google.maps.StyledMapType(
+          [
+      {
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#8a898b"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#cccbcd"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.attraction",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#cccbcd"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.business",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#cccbcd"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.government",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#cccbcd"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.medical",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#cccbcd"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#abd9c0"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.place_of_worship",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#cccbcd"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.school",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#d1d0d2"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.sports_complex",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#cccbcd"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#fbfcff"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#bde1f6"
+          }
+        ]
+      }
+    ],
+      {name: 'Styled Map'});
+
         var myLatLng = {lat: 51.498732, lng: -0.176935};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 16,
           center: myLatLng
-          //Map style below
         });
 
         var contentString = '<div id="content">'+
@@ -76,6 +233,9 @@
         infowindow.open(map, marker);
         });
 
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
 
       }
     </script>
