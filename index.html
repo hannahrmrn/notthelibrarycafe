@@ -29,23 +29,20 @@
   <div class="col-sm-9" id = "map"></div>
   <div class="col-sm-3 text-center">
       <div class="btn-group-vertical">
-      <button type="button" id = "all" class="btn btn-primary" onclick="FireButton">All</button>
+      <button type="button" id = "all" class="btn btn-primary" onclick="FireButton">Show all</button>
       <button type="button" id = "discounts" class="btn btn-primary" onclick="FireButton">Imperial Discounts</button>
-      <button type="button" class="btn btn-primary">Snacks</button>
-      <button type="button" class="btn btn-primary">Full Meals</button>
-      <button type="button" class="btn btn-primary">Sweet</button>
-      <button type="button" class="btn btn-primary">Savoury</button>
-      <h1>Selected element is </h1><h1 id="demo">Not hello world</h1>
+      <button type="button" id = "snacks" class="btn btn-primary" onclick="FireButton">Snacks</button>
+      <p>Currently showing </p><p id="demo">everything</p>
       </div>
   </div>
   </div>
-
-
 
     <script>
 
       var arrays = {};
       var selectedElement = "All"
+      var markers = [];
+
       arrays.discounts  = [[" ", 51.800052, -0.077467, 4.2],
                 [" ", 51.480226, 0.069589, 0],
                 [" ", 51.48808, -0.40301, 4.5],
@@ -59,25 +56,7 @@
 
       arrays.snacks  = [[" ", 51.800052, -0.077467, 4.2]]
 
-      document.getElementById("discounts").addEventListener("click", function(){
-          document.getElementById("demo").innerHTML = "Discounts";
-          selectedElement = "discounts"
-          setMarkers()
-      });
-
-      function setMarkers(a) {///where a is arrays
-        for (i = 0; i < arrays[a]; i++) {
-          var marker = new google.maps.Marker({
-            position: arrays[a][i][3],
-            map: map,
-            icon: markerIcon,
-             label: {
-               text: arrays[a][i][1],
-               fontSize: "16px",
-             }
-          });
-        }
-      }
+      arrays.all  = [[" ", 51.800052, -0.077467, 4.2]]
 
       function initMap() {
         var styledMapType = new google.maps.StyledMapType(
@@ -238,11 +217,50 @@
         map.setMapTypeId('styled_map');
 
       }
+
+        document.getElementById("all").addEventListener("click", function(){
+            document.getElementById("demo").innerHTML = "everything";
+            testFunction(arrays.all)
+        });
+
+      document.getElementById("discounts").addEventListener("click", function(){
+            document.getElementById("demo").innerHTML = "discounts";
+            testFunction(arrays.discounts)
+        });
+
+        document.getElementById("snacks").addEventListener("click", function(){
+            document.getElementById("demo").innerHTML = "snacks";
+            testFunction(arrays.snacks)
+        });
+
+      function testFunction(an_array) {
+        setAllMap(null);
+        document.getElementById("demo").innerHTML = an_array;
+
+        for (i = 0; i < an_array.length; i++) {
+        var new_lat = an_array[i][2];
+        var new_lang= an_array[i][3];
+
+        marker = new google.maps.Marker({
+        position: new google.maps.LatLng(an_array[i][1], an_array[i][2]),
+        map: map
+        });
+        markers.push(marker)
+      }
+      }
+
+      function setAllMap(val) {
+          for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(val);
+          }
+      }
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL8uZACjkHMb32pPJbdmprNKSWVa02EQo&callback=initMap">
     </script>
 
   </body>
+
 
 </html>
