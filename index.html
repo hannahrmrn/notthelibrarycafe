@@ -12,58 +12,75 @@
     <link rel='stylesheet' type='text/css' href='./Stylesheets/style.css'>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <!--Leaflet (Maps) CSS-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
     <!--JQuery JS for Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <!--Leaftlet JS -->
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
 
   </head>
 
   <body>
+
     <div class="container-fluid bg-1 text-center">
-      <div class="container text-center">
         <h1>Not the Library Cafe &#128548; </h1>
-      </div>
     </div>
-    <div class="container-fill" id="mapid" style="height: 100%">
-    <script>
+    <div id="map"></div>
 
-      	var mymap = L.map('mapid').setView([51.498732,-0.176935], 15);
-
-      	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZW1pbHliZW5uZXR0IiwiYSI6ImNqOWVtajQ4OTJqdnIycXF0d2VvdjN6eWEifQ.O16FGur35JviEKxpVwAZ6A', {
-      		maxZoom: 18,
-      		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-      			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      		id: 'mapbox.run-bike-hike'
-      	}).addTo(mymap);
-
-        var divIcon = L.divIcon({className: 'emojiIcon',
-          html: "&#128525",
-          iconAnchor: [10,10]
-        })
-
-        L.marker([51.498732,-0.176935],{icon: divIcon}).addTo(mymap)
-            .bindPopup("<b>Imperial College London Popup</b>");
-
-      	function onMapClick(e) {
-      		popup
-      			.setLatLng(e.latlng)
-      			.setContent("You clicked the map at " + e.latlng.toString())
-      			.openOn(mymap);
-      	}
-
-      	mymap.on('click', onMapClick);
-
-    </script>
-    </div>
     <footer class="container-fluid bg-2 text-center">
     <p> &#127959; &#127981; &#127970; &#127970;</a></p>
     </footer>
+
+    <script>
+      function initMap() {
+        var myLatLng = {lat: 51.498732, lng: -0.176935};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: myLatLng
+          //Map style below
+        });
+
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Library Cafe</h1>'+
+            '<div id="bodyContent">'+
+            '<p>We have to do better &#128548 </p>'+
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var markerIcon = {
+          url: './images/marker-flag.png',
+          scaledSize: new google.maps.Size(40, 40),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(40,40),
+          labelOrigin: new google.maps.Point(0,0)
+        };
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: markerIcon,
+           label: {
+             text: " ",
+             fontSize: "16px",
+           }
+        });
+
+        marker.addListener('click', function() {
+        infowindow.open(map, marker);
+        });
+
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL8uZACjkHMb32pPJbdmprNKSWVa02EQo&callback=initMap">
+    </script>
+
   </body>
 
 </html>
