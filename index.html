@@ -29,9 +29,9 @@
   <div class="col-sm-9" id = "map"></div>
   <div class="col-sm-3 text-center">
       <div class="btn-group-vertical">
-      <button type="button" id = "all" class="btn btn-primary" onclick="FireButton">Show all</button>
-      <button type="button" id = "discounts" class="btn btn-primary" onclick="FireButton">Imperial Discounts</button>
-      <button type="button" id = "snacks" class="btn btn-primary" onclick="FireButton">Snacks</button>
+      <button type="button" id = "all" class="btn btn-primary" onclick=displayMarkers(1)>Show all</button>
+      <button type="button" id = "discounts" class="btn btn-primary" onclick=displayMarkers(2)>Imperial Discounts</button>
+      <button type="button" id = "snacks" class="btn btn-primary" onclick=displayMarkers(3)>Snacks</button>
       <p>Currently showing </p><p id="demo">everything</p>
       </div>
   </div>
@@ -39,24 +39,20 @@
 
     <script>
 
-      var arrays = {};
-      var selectedElement = "All"
+      var locations  = [[" ", 51.800052, -0.176935, "everything","Description"],
+                  [" ", 51.498732, -0.176935, "snacks","Description"],
+                  [" ", 51.48808, -0.176935, "discounts","Description"],
+                  [" ", 51.341246, -0.176935, "discounts","Description"],
+                  [" ", 51.548934, -0.176935, "discounts","Description"],
+                  [" ", 51.602689, -0.176935, "discounts","Description"],
+                  [" ", 51.480955, -0.176935, "discounts","Description"],
+                  [" ", 51.750365, -0.176935, "discounts","Description"],
+                  [" ", 51.563842, -0.176935, "discounts","Description"],
+                  [" ", 51.69484, -0.176935, "discounts","Description"]]
+
       var markers = [];
-
-      arrays.discounts  = [[" ", 51.800052, -0.077467, 4.2],
-                [" ", 51.480226, 0.069589, 0],
-                [" ", 51.48808, -0.40301, 4.5],
-                [" ", 51.341246, -0.061708, 9.5],
-                [" ", 51.548934, -0.375026, 3.9],
-                [" ", 51.602689, 0.228719, 3.8],
-                [" ", 51.480955, -0.365949, 4.3],
-                [" ", 51.750365, -0.34032, 12.1],
-                [" ", 51.563842, 0.207556, 3.8],
-                [" ", 51.69484, -0.386208, 4.1]]
-
-      arrays.snacks  = [[" ", 51.800052, -0.077467, 4.2]]
-
-      arrays.all  = [[" ", 51.800052, -0.077467, 4.2]]
+      var i, newMarker;
+      var infoWindows = [];
 
       function initMap() {
         var styledMapType = new google.maps.StyledMapType(
@@ -172,23 +168,12 @@
       {name: 'Styled Map'});
 
         var myLatLng = {lat: 51.498732, lng: -0.176935};
+        //var bounds = new google.maps.LatLngBounds();
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 16,
           center: myLatLng
         });
 
-        var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Library Cafe</h1>'+
-            '<div id="bodyContent">'+
-            '<p>We have to do better &#128548 </p>'+
-            '</div>'+
-            '</div>';
-
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
 
         var markerIcon = {
           url: './images/marker-flag.png',
@@ -198,62 +183,74 @@
           labelOrigin: new google.maps.Point(0,0)
         };
 
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          icon: markerIcon,
-           label: {
-             text: " ",
-             fontSize: "16px",
-           }
-        });
-
-        marker.addListener('click', function() {
-        infowindow.open(map, marker);
-        });
+        //var marker = new google.maps.Marker({
+        //  position: myLatLng,
+        //  map: map,
+        //  icon: markerIcon,
+        //   label: {
+        //     text: " ",
+        //     fontSize: "16px",
+        //   }
+        //});
 
         //Associate the styled map with the MapTypeId and set it to display.
         map.mapTypes.set('styled_map', styledMapType);
         map.setMapTypeId('styled_map');
 
+        //display all locations as default
+        for (i = 0; i < locations.length; i++) {
+           newMarker = new google.maps.Marker({
+             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+             map: map,
+             icon: markerIcon,
+             title: locations[i][0]
+           });
+
+          //might need to rename this for each marker
+
+           newMarker.category = locations[i][3];
+           newMarker.description = locations[i][3];
+           newMarker.setVisible(true); //set as visible to start
+
+         }
+         //bounds.extend(myLatLng);
+         markers.push(newMarker);
+         //map.fitBounds(bounds);
       }
 
-        document.getElementById("all").addEventListener("click", function(){
-            document.getElementById("demo").innerHTML = "everything";
-            testFunction(arrays.all)
-        });
 
-      document.getElementById("discounts").addEventListener("click", function(){
-            document.getElementById("demo").innerHTML = "discounts";
-            testFunction(arrays.discounts)
-        });
-
-        document.getElementById("snacks").addEventListener("click", function(){
-            document.getElementById("demo").innerHTML = "snacks";
-            testFunction(arrays.snacks)
-        });
-
-      function testFunction(an_array) {
-        setAllMap(null);
-        document.getElementById("demo").innerHTML = an_array;
-
-        for (i = 0; i < an_array.length; i++) {
-        var new_lat = an_array[i][2];
-        var new_lang= an_array[i][3];
-
-        marker = new google.maps.Marker({
-        position: new google.maps.LatLng(an_array[i][1], an_array[i][2]),
-        map: map
-        });
-        markers.push(marker)
-      }
+      for (i = 0; i < markers.length; i++) {
+        markers[i].addListener('click', function() {
+          var infowindow = new google.maps.InfoWindow({
+            content:
+                '<div id="bodyContent">'+
+                '<p>Hello I am a popup &#128548 </p>'+
+                '</div>'
+          });
+         infowindow.open(map, markers[i]);
+          });
       }
 
-      function setAllMap(val) {
-          for (var i = 0; i < markers.length; i++) {
-          markers[i].setMap(val);
-          }
-      }
+
+       //category is a number
+       function displayMarkers(category) {
+         document.getElementById("demo").innerHTML = category;
+
+         var i;
+
+         for (i = 0; i < markers.length; i++) {
+           var cat = markers[i].category;
+           if (markers[i].category === category) {
+             markers[i].setVisible(true);
+           }
+           else {
+             markers[i].setVisible(false);
+           }
+           //bounds.extend(myLatLng);//extend bounds to show new markers
+         }
+
+       //map.fitBounds(bounds);
+       }
 
     </script>
     <script async defer
