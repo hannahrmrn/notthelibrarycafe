@@ -7,7 +7,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
     <!--Custom Stylesheet (ours)-->
     <link rel='stylesheet' type='text/css' href='./Stylesheets/style.css'>
     <!--Bootstrap CSS-->
@@ -40,131 +39,130 @@
     <script>
 
       var locations  = [[" ", 51.800052, -0.176935, "everything","Description"],
-                  [" ", 51.498732, -0.176935, "snacks","Description"],
-                  [" ", 51.48808, -0.176935, "discounts","Description"],
-                  [" ", 51.341246, -0.176935, "discounts","Description"],
-                  [" ", 51.548934, -0.176935, "discounts","Description"],
-                  [" ", 51.602689, -0.176935, "discounts","Description"],
-                  [" ", 51.480955, -0.176935, "discounts","Description"],
-                  [" ", 51.750365, -0.176935, "discounts","Description"],
-                  [" ", 51.563842, -0.176935, "discounts","Description"],
-                  [" ", 51.69484, -0.176935, "discounts","Description"]]
+                  [" ", 51.498732, -0.176935, "snacks",'Description'],
+                  [" ", 51.48808, -0.176935, "discounts",'Description'],
+                  [" ", 51.341246, -0.176935, "discounts",'Description'],
+                  [" ", 51.548934, -0.176935, "discounts",'Description'],
+                  [" ", 51.602689, -0.176935, "discounts",'Description'],
+                  [" ", 51.480955, -0.176935, "discounts",'Description'],
+                  [" ", 51.750365, -0.176935, "discounts",'Description'],
+                  [" ", 51.563842, -0.176935, "discounts",'Description'],
+                  [" ", 51.69484, -0.176935, "discounts",'Description']]
+
 
       var markers = [];
       var i, newMarker;
-      var infoWindows = [];
 
       function initMap() {
-        var styledMapType = new google.maps.StyledMapType(
-          [
-      {
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#8a898b"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#cccbcd"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.attraction",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#cccbcd"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.business",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#cccbcd"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.government",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#cccbcd"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.medical",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#cccbcd"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#abd9c0"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.place_of_worship",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#cccbcd"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.school",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#d1d0d2"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.sports_complex",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#cccbcd"
-          }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#fbfcff"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#bde1f6"
-          }
-        ]
-      }
-    ],
+        var styledMapType = new google.maps.StyledMapType([
+        {
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#8a898b"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#cccbcd"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.attraction",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#cccbcd"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.business",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#cccbcd"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.government",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#cccbcd"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.medical",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#cccbcd"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#abd9c0"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.place_of_worship",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#cccbcd"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.school",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#d1d0d2"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.sports_complex",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#cccbcd"
+            }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#fbfcff"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#bde1f6"
+            }
+          ]
+        }
+      ],
       {name: 'Styled Map'});
 
         var myLatLng = {lat: 51.498732, lng: -0.176935};
@@ -173,7 +171,6 @@
           zoom: 16,
           center: myLatLng
         });
-
 
         var markerIcon = {
           url: './images/marker-flag.png',
@@ -209,38 +206,41 @@
           //might need to rename this for each marker
 
            newMarker.category = locations[i][3];
-           newMarker.description = locations[i][3];
-           newMarker.setVisible(true); //set as visible to start
+           newMarker.description = locations[i][4];
+           newMarker.setVisible(false); //set as visible to start
+           markers.push(newMarker);
 
          }
+
          //bounds.extend(myLatLng);
-         markers.push(newMarker);
          //map.fitBounds(bounds);
-      }
 
 
-      for (i = 0; i < markers.length; i++) {
-        markers[i].addListener('click', function() {
-          var infowindow = new google.maps.InfoWindow({
-            content:
-                '<div id="bodyContent">'+
-                '<p>Hello I am a popup &#128548 </p>'+
-                '</div>'
-          });
-         infowindow.open(map, markers[i]);
-          });
-      }
+         for (i = 0; i < markers.length; i++) {
+                 markers[i].addListener('click', function() {
+                   var infowindow = new google.maps.InfoWindow({
+                     content: markers[i].description
+                   });
+                  infowindow.open(map, markers[i]);
+                  markers[i].setVisible(true);
+                 });
+        }
 
+       }
 
+       var categories = {
+         1: 'everything',
+         2: 'discounts',
+         3: 'snacks',
+       };
+       
        //category is a number
        function displayMarkers(category) {
          document.getElementById("demo").innerHTML = category;
 
-         var i;
-
          for (i = 0; i < markers.length; i++) {
-           var cat = markers[i].category;
-           if (markers[i].category === category) {
+           var test = categories[category];
+           if (markers[i].category === test) {
              markers[i].setVisible(true);
            }
            else {
@@ -248,9 +248,10 @@
            }
            //bounds.extend(myLatLng);//extend bounds to show new markers
          }
-
        //map.fitBounds(bounds);
        }
+
+
 
     </script>
     <script async defer
