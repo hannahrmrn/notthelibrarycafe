@@ -11,7 +11,6 @@ var locations  = [[" ", 51.800052, -0.176935, "category1",'Description'],
             [" ", 51.563842, -0.176935, "category3",'Description'],
             [" ", 51.69484, -0.176935, "category3",'Description']]
 
-
 var markers = [];
 var i, newMarker;
 
@@ -169,7 +168,8 @@ for (i = 0; i < locations.length; i++) {
   //might need to rename this for each marker
    newMarker.category = locations[i][3];
    newMarker.description = locations[i][4];
-   newMarker.setVisible(false); //set as visible to start
+   newMarker.popupAdded = 0; //tracking popupaddition
+   newMarker.setVisible(false); //
    markers.push(newMarker);
 
  }
@@ -186,23 +186,25 @@ var categories = {
  3: 'category3',
 };
 
+
 function makePopups(m) {
 
-  //console.log(typeof m.onclick);
+  if(m.popupAdded == 0){
   var desc = m.description;
-
-  m.setVisible(true);
-
   var infowindow = new google.maps.InfoWindow({
     content: desc,
   });
 
   m.addListener('click', function() {
-   infowindow.open(map, m);
+  infowindow.open(map, m);
   });
+}
 
 }
 
+function setvis(m,v) {
+  m.setVisible(v);
+}
 
 //category is a number
 function displayMarkers(category) {
@@ -212,18 +214,17 @@ function displayMarkers(category) {
    console.log(i);
  });
 
-
+//decoupled popups from category selector
  for (i = 0; i < markers.length; i++) {
    var test = categories[category];
-   //console.log(desc);
+   makePopups(markers[i]); //make popups currently includes popup and setvisible
+   markers[i].popupAdded = 1;
 
    if (markers[i].category === test) {
-     makePopups(markers[i]);
+     setvis(markers[i],true);
    }
    else {
-     markers[i].setVisible(false);
-
-     console.log(markers[i]);
+     setvis(markers[i],false);
    }
    //bounds.extend(myLatLng);//extend bounds to show new markers
  }
