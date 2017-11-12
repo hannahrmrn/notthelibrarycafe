@@ -7,6 +7,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!---Open source font from google--->
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     <!--Custom Stylesheet (ours)-->
     <link rel='stylesheet' type='text/css' href='./Stylesheets/style.css'>
     <!--Bootstrap CSS-->
@@ -20,239 +22,55 @@
 
   <body>
 
-    <div class="container-fluid bg-1 text-center">
-        <h1>Not the Library Cafe &#128548;&#127959; &#127981; &#127970; &#127970; </h1>
-    </div>
 
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+          <a class="navbar-brand" href="#"><a class="navbar-brand" href="#"><img src="./images/logo.png" alt="notthelibrarycafe" width=500px></a></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarsExample03">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contribute</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03">
+                  <a class="dropdown-item" href="./findpoint.html">Add a place (students)</a>
+                  <a class="dropdown-item" href="#">Get involved (businesses)</a>
+                </div>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-md-0">
+              <input class="form-control" type="text" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+
+  <div class="container-fluid">
   <div class="row">
   <div class="col-sm-9" id = "map"></div>
-  <div class="col-sm-3 text-center">
-  <p>Currently latitude </p><p id="lat"> </p>
-  <p>Currently longitude </p><p id="long"> </p>
+  <div class="col-sm-3 text-justified">
+      <h2>Current Latitude & Longitude:</br></h2>
+      <p id = "latlng"></br></p>
+      <form>
+      <div class="form-group" action="/action_page.php">
+          <label for="placename">Place Name</label>
+          <input type="placename" class="form-control" id="placename">
+        </div>
+        <div class="form-group">
+          <label for="placedesc">Place Description</label>
+          <input type="placedesc" class="form-control" id="placedesc">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
   </div>
   </div>
-  </div>
+</div>
 
-    <script>
-
-      var locations  = [[" ", 51.800052, -0.176935, "category1",'Description'],
-                  [" ", 51.498732, -0.176935, "category1",'Description'],
-                  [" ", 51.48808, -0.176935, "category2",'Description'],
-                  [" ", 51.341246, -0.176935, "category2",'Description'],
-                  [" ", 51.548934, -0.176935, "category2",'Description'],
-                  [" ", 51.602689, -0.176935, "category2",'Description'],
-                  [" ", 51.480955, -0.176935, "category1",'Description'],
-                  [" ", 51.750365, -0.176935, "category3",'Description'],
-                  [" ", 51.563842, -0.176935, "category3",'Description'],
-                  [" ", 51.69484, -0.176935, "category3",'Description']]
-
-
-      var markers = [];
-      var i, newMarker;
-
-      function initMap() {
-        var styledMapType = new google.maps.StyledMapType([
-        {
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#8a898b"
-            }
-          ]
-        },
-        {
-          "featureType": "poi",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#cccbcd"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.attraction",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#cccbcd"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.business",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#cccbcd"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.government",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#cccbcd"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.medical",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#cccbcd"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.park",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#abd9c0"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.place_of_worship",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#cccbcd"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.school",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#d1d0d2"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.sports_complex",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#cccbcd"
-            }
-          ]
-        },
-        {
-          "featureType": "road.highway",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#fbfcff"
-            }
-          ]
-        },
-        {
-          "featureType": "water",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#bde1f6"
-            }
-          ]
-        }
-      ],
-      {name: 'Styled Map'});
-
-        var myLatLng = {lat: 51.498732, lng: -0.176935};
-        //var bounds = new google.maps.LatLngBounds();
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 16,
-          center: myLatLng
-        });
-
-        var markerIcon = {
-          url: './images/marker-flag.png',
-          scaledSize: new google.maps.Size(40, 40),
-          origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(40,40),
-          labelOrigin: new google.maps.Point(0,0)
-        };
-
-        //var marker = new google.maps.Marker({
-        //  position: myLatLng,
-        //  map: map,
-        //  icon: markerIcon,
-        //   label: {
-        //     text: " ",
-        //     fontSize: "16px",
-        //   }
-        //});
-
-        //Associate the styled map with the MapTypeId and set it to display.
-        map.mapTypes.set('styled_map', styledMapType);
-        map.setMapTypeId('styled_map');
-
-        //display all locations as default
-        for (i = 0; i < locations.length; i++) {
-           newMarker = new google.maps.Marker({
-             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-             map: map,
-             icon: markerIcon,
-             title: locations[i][0]
-           });
-
-          //might need to rename this for each marker
-
-           newMarker.category = locations[i][3];
-           newMarker.description = locations[i][4];
-           newMarker.setVisible(false); //set as visible to start
-           markers.push(newMarker);
-
-         }
-
-         //bounds.extend(myLatLng);
-         //map.fitBounds(bounds);
-
-
-       }
-
-       var categories = {
-         1: 'category1',
-         2: 'category2',
-         3: 'category3',
-       };
-
-       //category is a number
-       function displayMarkers(category) {
-         document.getElementById("demo").innerHTML = category;
-
-         for (i = 0; i < markers.length; i++) {
-           var test = categories[category];
-           var desc = markers[i].description;
-           console.log(desc);
-
-           if (markers[i].category === test) {
-             markers[i].setVisible(true);
-
-             markers[i].addListener('click', function() {
-
-               var infowindow = new google.maps.InfoWindow({
-                 content: desc
-               });
-              infowindow.open(map, markers[i]);
-             });
-
-           }
-           else {
-             markers[i].setVisible(false);
-           }
-           //bounds.extend(myLatLng);//extend bounds to show new markers
-         }
-       //map.fitBounds(bounds);
-       }
-
-
-
-    </script>
+    <script src = "./select_place.js" > </script>
+    <script src = "./CanvasLayer.js" > </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL8uZACjkHMb32pPJbdmprNKSWVa02EQo&callback=initMap">
     </script>

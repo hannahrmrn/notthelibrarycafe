@@ -1,5 +1,3 @@
-
-
 var locations  = [[" ", 51.800052, -0.176935, "category1",'Description'],
             [" ", 51.498732, -0.176935, "category1",'Description'],
             [" ", 51.48808, -0.176935, "category2",'Description'],
@@ -193,6 +191,26 @@ var markerIcon = {
 //Associate the styled map with the MapTypeId and set it to display.
 map.mapTypes.set('styled_map', styledMapType);
 map.setMapTypeId('styled_map');
+
+var current_marker;
+
+function make_marker(l_lang) {
+  if(current_marker) {current_marker.setMap(null);}
+
+  newMarker = new google.maps.Marker({
+    position: l_lang,
+    map: map,
+    icon: markerIcon,
+    title: "New Marker"
+  });
+  current_marker = newMarker;
+}
+
+map.addListener('click', function(e) {
+  document.getElementById("latlng").innerHTML = e.latLng;
+  make_marker(e.latLng)
+});
+
 
 //display all locations as default
 for (i = 0; i < locations.length; i++) {
