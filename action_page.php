@@ -24,7 +24,7 @@
 
 
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-          <a class="navbar-brand" href="#"><a class="navbar-brand" href="./index.html"><img src="./images/logo.png" alt="notthelibrarycafe" width=500px></a></a>
+          <a class="navbar-brand" href="#"><a class="navbar-brand" href="#"><img src="./images/logo.png" alt="notthelibrarycafe" width=500px></a></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -35,7 +35,7 @@
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contribute</a>
+                <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contribute</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown03">
                   <a class="dropdown-item" href="./findpoint.html">Add a place (students)</a>
                   <a class="dropdown-item" href="#">Get involved (businesses)</a>
@@ -50,19 +50,25 @@
 
   <div class="container-fluid">
   <div class="row">
-  <div class="col-sm-9" id = "map"></div>
-  <div class="col-sm-3 text-justified">
-      <div class="btn-group-vertical btn-group-justified">
-      <button type="button" id = "category 1" class="btn btn-custom" onclick=displayMarkers(1)>find meals</button>
-      <button type="button" id = "category 2" class="btn btn-custom" onclick=displayMarkers(2)>find snacks</button>
-      <button type="button" id = "category 3" class="btn btn-custom" onclick=displayMarkers(3)>find discounts</button>
-      </div>
-      <p></br>Welcome to our website!</p>
+  <div class="col-sm-12 text-center">
+      <form>
+      <div class="form-group" action="/action_page.php" method="post">
+      <h2>Current Latitude & Longitude:</br></h2>
+      <p id = "latlng" name = "position" class="form-control"></br></p>
+          <label for="placename">Place Name</label>
+          <input type="placename" class="form-control" id="placename">
+        </div>
+        <div class="form-group">
+          <label for="placedesc">Place Description</label>
+          <input type="placedesc" class="form-control" id="placedesc">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
   </div>
   </div>
 </div>
 
-    <script src = "./main.js" > </script>
+    <script src = "./select_place.js" > </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL8uZACjkHMb32pPJbdmprNKSWVa02EQo&callback=initMap">
     </script>

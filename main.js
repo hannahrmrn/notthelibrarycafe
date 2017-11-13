@@ -1,15 +1,15 @@
 
 
-var locations  = [[" ", 51.800052, -0.176935, "category1",'Description'],
-            [" ", 51.498732, -0.176935, "category1",'Description'],
-            [" ", 51.48808, -0.176935, "category2",'Description'],
-            [" ", 51.341246, -0.176935, "category2",'Description'],
+var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category1",'Description'],
+            ["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category3",'Student Discount'],
+            ["Honest Burger Kitchen", 51.4943927, -0.1735336, "category3",'Description'],
             [" ", 51.548934, -0.176935, "category2",'Description'],
             [" ", 51.602689, -0.176935, "category2",'Description'],
             [" ", 51.480955, -0.176935, "category1",'Description'],
             [" ", 51.750365, -0.176935, "category3",'Description'],
             [" ", 51.563842, -0.176935, "category3",'Description'],
             [" ", 51.69484, -0.176935, "category3",'Description']]
+
 
 var markers = [];
 var i, newMarker;
@@ -205,11 +205,12 @@ for (i = 0; i < locations.length; i++) {
    });
 
   //might need to rename this for each marker
-   newMarker.category = locations[i][3];
-   newMarker.description = locations[i][4];
-   newMarker.popupAdded = 0; //tracking popupaddition
-   newMarker.setVisible(false); //
-   markers.push(newMarker);
+  newMarker.name = locations[i][0];
+  newMarker.category = locations[i][3];
+  newMarker.description = locations[i][4];
+  newMarker.popupAdded = 0; //tracking popupaddition
+  newMarker.setVisible(false); //
+  markers.push(newMarker);
 
  }
 
@@ -229,14 +230,18 @@ var categories = {
 function makePopups(m) {
 
   if(m.popupAdded == 0){
-  var desc = m.description;
+  var desc = '<h2>' + m.name +'</h2>' + '</br><p>'+ m.description + '</p>';
   var infowindow = new google.maps.InfoWindow({
     content: desc,
   });
 
+  m.popup = infowindow; //add popup to list that we can retrieve later to close popups
+
   m.addListener('click', function() {
+  closeAllPopups()
   infowindow.open(map, m);
   });
+
 }
 
 }
@@ -257,6 +262,7 @@ function displayMarkers(category) {
    var test = categories[category];
    makePopups(markers[i]); //make popups currently includes popup and setvisible
    markers[i].popupAdded = 1;
+   markers[i].popup.close() //close all popups when change category
 
    if (markers[i].category === test) {
      setvis(markers[i],true);
@@ -267,4 +273,12 @@ function displayMarkers(category) {
    //bounds.extend(myLatLng);//extend bounds to show new markers
  }
 //map.fitBounds(bounds);
+}
+
+function closeAllPopups() {
+  //loops through table and closes all popups
+   for (i = 0; i < markers.length; i++) {
+     markers[i].popup.close() //close all popups when change category
+   }
+
 }
