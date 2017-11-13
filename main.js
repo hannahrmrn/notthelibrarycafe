@@ -165,8 +165,8 @@ function initMap() {
 ],
 {name: 'Styled Map'});
 
+
 var myLatLng = {lat: 51.498732, lng: -0.176935};
-//var bounds = new google.maps.LatLngBounds();
 var map = new google.maps.Map(document.getElementById('map'), {
   zoom: 16,
   center: myLatLng
@@ -180,23 +180,12 @@ var markerIcon = {
   labelOrigin: new google.maps.Point(0,0)
 };
 
-//var marker = new google.maps.Marker({
-//  position: myLatLng,
-//  map: map,
-//  icon: markerIcon,
-//   label: {
-//     text: " ",
-//     fontSize: "16px",
-//   }
-//});
-
 //Associate the styled map with the MapTypeId and set it to display.
 map.mapTypes.set('styled_map', styledMapType);
 map.setMapTypeId('styled_map');
 
 //display all locations as default
 for (i = 0; i < locations.length; i++) {
-  console.log(locations[i][1],locations[i][2]);
    newMarker = new google.maps.Marker({
      position: {lat: locations[i][1], lng: locations[i][2]},
      map: map,
@@ -214,11 +203,9 @@ for (i = 0; i < locations.length; i++) {
 
  }
 
- //bounds.extend(myLatLng);
- //map.fitBounds(bounds);
 
+} //from initMap
 
-}
 
 var categories = {
  1: 'category1',
@@ -238,24 +225,19 @@ function makePopups(m) {
   m.popup = infowindow; //add popup to list that we can retrieve later to close popups
 
   m.addListener('click', function() {
-  closeAllPopups()
-  infowindow.open(map, m);
-  });
-
+    closeAllPopups()
+    infowindow.open(map, m);
+    });
+  }
 }
 
-}
 
 function setvis(m,v) {
   m.setVisible(v);
 }
 
-//category is a number
+//triggered when changing category
 function displayMarkers(category) {
-
- markers.forEach(i => {
-   console.log(i);
- });
 
 //decoupled popups from category selector
  for (i = 0; i < markers.length; i++) {
@@ -266,13 +248,19 @@ function displayMarkers(category) {
 
    if (markers[i].category === test) {
      setvis(markers[i],true);
+     //bounds.extend(
+    //     new google.maps.LatLng(
+    //       markers[i].position.lat(),
+    //       markers[i].position.lng())
+    //   );
+    //map.fitBounds(bounds);
+
    }
    else {
      setvis(markers[i],false);
    }
    //bounds.extend(myLatLng);//extend bounds to show new markers
  }
-//map.fitBounds(bounds);
 }
 
 function closeAllPopups() {
