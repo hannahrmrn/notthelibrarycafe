@@ -13,6 +13,8 @@ var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "
 
 var markers = [];
 var i, newMarker;
+var globalmap; //so can getmap later
+var globalbounds;
 
 function initMap() {
   var styledMapType = new google.maps.StyledMapType(
@@ -165,12 +167,16 @@ function initMap() {
 ],
 {name: 'Styled Map'});
 
-
 var myLatLng = {lat: 51.498732, lng: -0.176935};
+
 var map = new google.maps.Map(document.getElementById('map'), {
   zoom: 16,
   center: myLatLng
 });
+globalmap = map; //workaround for setting varible to global
+
+var bounds = new google.maps.LatLngBounds(); //sets up bounds
+globalbounds = bounds; //workaround for setting varible to global
 
 var markerIcon = {
   url: './images/marker-flag.png',
@@ -238,6 +244,7 @@ function setvis(m,v) {
 
 //triggered when changing category
 function displayMarkers(category) {
+var bounds = new google.maps.LatLngBounds; //create new bounds object
 
 //decoupled popups from category selector
  for (i = 0; i < markers.length; i++) {
@@ -248,12 +255,13 @@ function displayMarkers(category) {
 
    if (markers[i].category === test) {
      setvis(markers[i],true);
-     //bounds.extend(
-    //     new google.maps.LatLng(
-    //       markers[i].position.lat(),
-    //       markers[i].position.lng())
-    //   );
-    //map.fitBounds(bounds);
+
+     bounds.extend(
+         new google.maps.LatLng(
+           markers[i].position.lat(),
+           markers[i].position.lng()
+         )
+       );
 
    }
    else {
@@ -261,6 +269,7 @@ function displayMarkers(category) {
    }
    //bounds.extend(myLatLng);//extend bounds to show new markers
  }
+ globalmap.fitBounds(bounds); //would like smooth animation in future (possibly panToBounds??), need this ourside for loop
 }
 
 function closeAllPopups() {
