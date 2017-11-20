@@ -1,3 +1,5 @@
+/* CSS stylesheet for all pages of notthelibrarycafe */
+
 body {
   padding-left: 0px;
   padding-right: 0px;
@@ -74,6 +76,12 @@ fieldset[disabled] .btn-custom.active {
 .bg-1 {
   background-color: #ffffff;
   color: #000000;
+}
+
+.col-sm-12 {
+    padding: 16px;
+    color: #000000;
+    background-color:  #ffffff;
 }
 
 .col-sm-6 {
