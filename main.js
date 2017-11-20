@@ -1,14 +1,14 @@
 
 
-var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category1",'Description'],
-            ["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category3",'Student Discount'],
-            ["Honest Burger Kitchen", 51.4943927, -0.1735336, "category3",'Description'],
-            [" ", 51.548934, -0.176935, "category2",'Description'],
-            [" ", 51.602689, -0.176935, "category2",'Description'],
-            [" ", 51.480955, -0.176935, "category1",'Description'],
-            [" ", 51.750365, -0.176935, "category3",'Description'],
-            [" ", 51.563842, -0.176935, "category3",'Description'],
-            [" ", 51.69484, -0.176935, "category3",'Description']]
+var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category1",'Student Discount'],
+            ["Honest Burger Kitchen", 51.4943927, -0.1735336, "category1",'No current student discount at the Kensington branch'],
+            ["Fernandez & Wells", 51.4946935,-0.1740589, "category1",'Student Discount for Imperial Students'],
+            ["Oriental Canteen",51.49459715709654, -0.17327606678009033, "category1",'No current student discount offered'],
+            ["Bubbleology",51.4945499,-0.1739382, "category2",'Loyalty card available'],
+            ["Gỗ viet",51.4931248,-0.1759496, "category1",'On the more expensive side, the lunch deal is around £10'],
+            ["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category3",'Offers 10% student discount'],
+            ["Fernandez & Wells", 51.4946935,-0.1740589, "category3",'Student Discount for Imperial Students'],
+          ]
 
 
 var markers = [];
