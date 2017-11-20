@@ -17,6 +17,10 @@ h2 {
   font-size: 18px !important;
 }
 
+.text-justified {
+  text-align: justify;
+}
+
 #map {
   height: calc(100vh - 90px);
   width: 100%;
