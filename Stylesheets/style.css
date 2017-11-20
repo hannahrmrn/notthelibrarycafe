@@ -30,18 +30,13 @@ h2 {
   left: 20px;
 }
 
-.navbar {
-  height: 70px;
-}
-
 ul.navbar-nav a {
-  line-height: 12px;
+
  }
 
 ul.navbar-nav a:hover {
   background-color: #000000 !important;
   color: #f2f2f2 !important;
-  line-height: 12px;
  }
 
 .gm-style .gm-style-iw {
