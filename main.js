@@ -4,8 +4,13 @@ var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "
             ["Honest Burger Kitchen", 51.4943927, -0.1735336, "category1",'No current student discount at the Kensington branch',0],
             ["Fernandez & Wells", 51.4946935,-0.1740589, "category1",'Student Discount for Imperial Students',1],
             ["Oriental Canteen",51.49459715709654, -0.17327606678009033, "category1",'No current student discount offered',0],
-            ["Bubbleology",51.4945499,-0.1739382, "category2",'Loyalty card available',1],
-            ["Gỗ viet",51.4931248,-0.1759496, "category1",'On the more expensive side, the lunch deal is around £10',1]
+            ["Bubbleology",51.4945499,-0.1739382, "category2",'Loyalty card available',0],
+            ["Gỗ viet",51.4931248,-0.1759496, "category1",'On the more expensive side, the lunch deal is around £10',0],
+            ["Byron Burger",51.494773,-0.182543,"category1",'Student Discount offered with UNiDAYS (20%)',1],
+            ["Muriel's Kitchen",51.4941145,-0.1744669,"category1",'Cosy place for posh english food',0],
+            ["Leon",51.4941909,-0.174459,"category2",'Amazing salads and wraps around £5',0],
+            ["Wright Brothers Seafood & Oyster",51.493167,-0.176494,"category2",'Oysters for £1 6-8pm',1],
+            ["Franco Manca",51.4925158,-0.1770853,"category2",'Free Beer Monday & Tuesday - use buzzword Brixton 2008 and show student ID </br><a href="http://www.francomanca.co.uk/student-drink-on-us-find-out-more/">See T&Cs</a>',1],
           ]
 
 
