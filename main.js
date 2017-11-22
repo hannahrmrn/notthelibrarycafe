@@ -11,7 +11,7 @@ var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "
             ["Leon",51.4941909,-0.174459,"category2",'Amazing salads and wraps around £5</p> <a href="http://leonrestaurants.co.uk/restaurants/south-kensington/" target="blank">Visit website</a>',0],
             ["Wright Brothers Seafood & Oyster",51.493167,-0.176494,"category2",'Oysters for £1 3-6pm every day</p> <a href="http://thewrightbrothers.co.uk/restaurant/south-kensington/" target="blank">Visit website</a>',1],
             ["Franco Manca",51.4925158,-0.1770853,"category1",'Free Beer Monday & Tuesday - use buzzword Brixton 2008 and show student ID </br><a href="http://www.francomanca.co.uk/student-drink-on-us-find-out-more/" target="blank">See T&Cs</a></p> <a href="http://www.francomanca.co.uk/restaurants/southkensington/" target="blank">Visit website</a>',1],
-            ["Ben's Cookies",51.4940203,-0.1763812,"category2",'Delicious cookies usually on a 4 for the price of 3 offer</p> <a href="http://www.benscookies.com/" target="blank">Visit website</a>',0],
+            ["Ben's Cookies",51.49402270, -0.1742148,"category2",'Delicious cookies usually on a 4 for the price of 3 offer</p> <a href="http://www.benscookies.com/" target="blank">Visit website</a>',0],
             ["Bosphorous Kebab",51.4930427,-0.1761608,"category2",'Best kebabs in West London</p>',0],
             ["The Sandwich Shop",51.4930427,-0.1761608,"category2",'This is run by the same people who run fusion 54, sells super cheap sandwiches and coffee</p>',0],
           ]
