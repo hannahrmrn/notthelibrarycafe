@@ -1,13 +1,11 @@
 
 
-var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category1",'Student Discount'],
-            ["Honest Burger Kitchen", 51.4943927, -0.1735336, "category1",'No current student discount at the Kensington branch'],
-            ["Fernandez & Wells", 51.4946935,-0.1740589, "category1",'Student Discount for Imperial Students'],
-            ["Oriental Canteen",51.49459715709654, -0.17327606678009033, "category1",'No current student discount offered'],
-            ["Bubbleology",51.4945499,-0.1739382, "category2",'Loyalty card available'],
-            ["Gỗ viet",51.4931248,-0.1759496, "category1",'On the more expensive side, the lunch deal is around £10'],
-            ["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category3",'Offers 10% student discount'],
-            ["Fernandez & Wells", 51.4946935,-0.1740589, "category3",'Student Discount for Imperial Students'],
+var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category1",'Offers 10% student discount',1],
+            ["Honest Burger Kitchen", 51.4943927, -0.1735336, "category1",'No current student discount at the Kensington branch',0],
+            ["Fernandez & Wells", 51.4946935,-0.1740589, "category1",'Student Discount for Imperial Students',1],
+            ["Oriental Canteen",51.49459715709654, -0.17327606678009033, "category1",'No current student discount offered',0],
+            ["Bubbleology",51.4945499,-0.1739382, "category2",'Loyalty card available',1],
+            ["Gỗ viet",51.4931248,-0.1759496, "category1",'On the more expensive side, the lunch deal is around £10',1]
           ]
 
 
@@ -190,6 +188,8 @@ var markerIcon = {
 map.mapTypes.set('styled_map', styledMapType);
 map.setMapTypeId('styled_map');
 
+var bounds = new google.maps.LatLngBounds; //create new bounds object
+
 //display all locations as default
 for (i = 0; i < locations.length; i++) {
    newMarker = new google.maps.Marker({
@@ -203,22 +203,32 @@ for (i = 0; i < locations.length; i++) {
   newMarker.name = locations[i][0];
   newMarker.category = locations[i][3];
   newMarker.description = locations[i][4];
+  newMarker.discount = locations[i][5];
   newMarker.popupAdded = 0; //tracking popupaddition
-  newMarker.setVisible(false); //
+  newMarker.setVisible(true); //
   markers.push(newMarker);
+
+  makePopups(newMarker); //make popups currently includes popup and setvisible
+  newMarker.popupAdded = 1;
+  newMarker.popup.close() //close all popups when change category
+
+  bounds.extend(
+      new google.maps.LatLng(
+        newMarker.position.lat(),
+        newMarker.position.lng()
+      )
+    );
 
  }
 
-
+globalmap.fitBounds(bounds); //would like smooth animation in future (possibly panToBounds??), need this ourside for loop
 } //from initMap
 
 
 var categories = {
  1: 'category1',
  2: 'category2',
- 3: 'category3',
 };
-
 
 function makePopups(m) {
 
@@ -267,10 +277,10 @@ var bounds = new google.maps.LatLngBounds; //create new bounds object
    else {
      setvis(markers[i],false);
    }
-   //bounds.extend(myLatLng);//extend bounds to show new markers
  }
  globalmap.fitBounds(bounds); //would like smooth animation in future (possibly panToBounds??), need this ourside for loop
 }
+
 
 function closeAllPopups() {
   //loops through table and closes all popups
@@ -278,4 +288,31 @@ function closeAllPopups() {
      markers[i].popup.close() //close all popups when change category
    }
 
+}
+
+function displayDiscounts(discount_bool) { //1 if discount offered, 0 if no discount offered
+var bounds = new google.maps.LatLngBounds; //create new bounds object
+
+//decoupled popups from category selector
+ for (i = 0; i < markers.length; i++) {
+   makePopups(markers[i]); //make popups currently includes popup and setvisible
+   markers[i].popupAdded = 1;
+   markers[i].popup.close() //close all popups when change category
+
+   if (markers[i].discount === discount_bool) {
+     setvis(markers[i],true);
+
+     bounds.extend(
+         new google.maps.LatLng(
+           markers[i].position.lat(),
+           markers[i].position.lng()
+         )
+       );
+
+   }
+   else {
+     setvis(markers[i],false);
+   }
+ }
+ globalmap.fitBounds(bounds); //would like smooth animation in future (possibly panToBounds??), need this ourside for loop
 }

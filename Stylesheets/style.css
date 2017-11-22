@@ -6,6 +6,7 @@ body {
   padding-top: 0px;
   padding-bottom: 0px;
   font-family: 'Special Elite' !important;
+  height: 100vh;
 }
 
 h1 {
@@ -16,6 +17,7 @@ h2 {
   font-weight: bold;
   font-size: 18px !important;
 }
+
 
 .text-justified {
   text-align: justify;
@@ -30,26 +32,22 @@ h2 {
 .instagram_logo img {
   border: none;
   display: block;
-   margin: 0 auto;
+  margin: 0 auto;
 }
 
-
 #map {
-  height: calc(100vh - 70px);
-  width: 100%;
+  position: relative;
+  height: calc(100vh - 56px);
   z-index: 0; /* Set z-index to 0 as it will be on a layer below the contact form */
 }
 
-#changelist {
-  z-index: 1; /* The z-index should be higher than Google Maps */
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+#overlay {
+  position: 	relative;
+  bottom:			80px;
+  z-index:		2;
+  margin:		0 auto;
 }
 
-ul.navbar-nav a {
-
- }
 
 ul.navbar-nav a:hover {
   background-color: #000000 !important;
@@ -99,7 +97,6 @@ fieldset[disabled] .btn-custom.active {
 }
 
 .col-sm-12 {
-    padding: 16px;
     color: #000000;
     background-color:  #ffffff;
 }
@@ -112,5 +109,4 @@ fieldset[disabled] .btn-custom.active {
 .col-sm-3 {
   background-color:  ;
   color: #000000;
-  padding-top:15px;
 }

@@ -21,11 +21,9 @@
 
   <body>
 
-
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <div class="container-fluid">
 
-      <a class="navbar-brand" href="#"><a class="navbar-brand" href="./index.html"><img src="./images/logo.png" alt="notthelibrarycafe" width=500px></a></a>
+      <a class="navbar-brand" href="./index.html"><img src="./images/logo.png" alt="notthelibrarycafe" style="max-width:200px; margin-top: 7px;" ></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,7 +34,7 @@
             <a class="nav-link" href="./featured.html">Featured</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contribute</a>
+            <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contribute</a>
             <div class="dropdown-menu" aria-labelledby="dropdown03">
               <a class="dropdown-item" href="./findpoint.html">Add a place (students)</a>
               <a class="dropdown-item" href="./establishments.html">Get involved (businesses)</a>
@@ -47,21 +45,17 @@
           </li>
         </ul>
       </div>
-    </div>
     </nav>
 
-  <div class="container-fluid">
-  <div class="row">
-  <div id = "map"></div>
-  <div id = "changelist">
+
+  <div id = "map" class = "jumbotron"></div>
+  <div id = "overlay" class = "d-flex justify-content-center">
       <div class="btn-group btn-group-center">
-      <button type="button" id = "category 1" class="btn btn-custom" onclick=displayMarkers(1)>find meals</button>
-      <button type="button" id = "category 2" class="btn btn-custom" onclick=displayMarkers(2)>find snacks</button>
-      <button type="button" id = "category 3" class="btn btn-custom" onclick=displayMarkers(3)>find discounts</button>
+      <button type="button" id = "category 1" class="btn btn-custom" onclick=displayMarkers(1)>meals</button>
+      <button type="button" id = "category 2" class="btn btn-custom" onclick=displayMarkers(2)>snacks</button>
+      <button type="button" id = "category 3" class="btn btn-custom" onclick=displayDiscounts(1)>discounts</button>
       </div>
   </div>
-  </div>
-</div>
 
     <script src = "./main.js" > </script>
     <script async defer
