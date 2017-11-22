@@ -1,16 +1,16 @@
 
 
-var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category1",'Offers 10% student discount',1],
-            ["Honest Burger Kitchen", 51.4943927, -0.1735336, "category1",'No current student discount at the Kensington branch',0],
-            ["Fernandez & Wells", 51.4946935,-0.1740589, "category1",'Student Discount for Imperial Students',1],
-            ["Oriental Canteen",51.49459715709654, -0.17327606678009033, "category1",'No current student discount offered',0],
-            ["Bubbleology",51.4945499,-0.1739382, "category2",'Loyalty card available',0],
-            ["Gỗ viet",51.4931248,-0.1759496, "category1",'On the more expensive side, the lunch deal is around £10',0],
-            ["Byron Burger",51.494773,-0.182543,"category1",'Student Discount offered with UNiDAYS (20%)',1],
-            ["Muriel's Kitchen",51.4941145,-0.1744669,"category1",'Cosy place for posh english food',0],
-            ["Leon",51.4941909,-0.174459,"category2",'Amazing salads and wraps around £5',0],
-            ["Wright Brothers Seafood & Oyster",51.493167,-0.176494,"category2",'Oysters for £1 6-8pm',1],
-            ["Franco Manca",51.4925158,-0.1770853,"category2",'Free Beer Monday & Tuesday - use buzzword Brixton 2008 and show student ID </br><a href="http://www.francomanca.co.uk/student-drink-on-us-find-out-more/">See T&Cs</a>',1],
+var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "category2",'Offers 10% student discount </p><a href="http://www.oddonos.com/index.html" target="blank">Visit website</a>',1],
+            ["Honest Burger Kitchen", 51.4943927, -0.1735336, "category1",'No current student discount at the Kensington branch </p><a href="https://www.honestburgers.co.uk/locations/south-kensington/" target="blank">Visit website<a/>',0],
+            ["Fernandez & Wells", 51.4946935,-0.1740589, "category1",'Student Discount for Imperial Students</p><a href="http://www.fernandezandwells.com/shop/exhibition-road/" target="blank">Visit website</a>',1],
+            ["Oriental Canteen",51.49459715709654, -0.17327606678009033, "category1",'No current student discount offered</p> <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d1007176-Reviews-Oriental_Canteen-London_England.html" target="blank">See on TripAdvisor</a>',0],
+            ["Bubbleology",51.4945499,-0.1739382, "category2",'Loyalty card available</p> <a href="http://bubbleology.co.uk/" target="blank">Visit website</a>',0],
+            ["Gỗ viet",51.4931248,-0.1759496, "category1",'On the more expensive side, the lunch deal is around £10</p> <a href="http://vietnamfood.co.uk/go-viet/index" target="blank">Visit website</a>',0],
+            ["Byron Burger",51.494773,-0.182543,"category1",'Student Discount offered with <a href="https://www.myunidays.com" target="blank">UNiDAYS</a> (20%)</p> <a href="https://www.byronhamburgers.com/restaurant/gloucester-road" target="blank">Visit website</a>',1],
+            ["Muriel's Kitchen",51.4941145,-0.1744669,"category1",'Cosy place for posh english food</p> <a href="http://www.murielskitchen.co.uk/restaurants/south-kensington" target="blank">Visit website</a>',0],
+            ["Leon",51.4941909,-0.174459,"category2",'Amazing salads and wraps around £5</p> <a href="http://leonrestaurants.co.uk/restaurants/south-kensington/" target="blank">Visit website</a>',0],
+            ["Wright Brothers Seafood & Oyster",51.493167,-0.176494,"category2",'Oysters for £1 3-6pm every day</p> <a href="http://thewrightbrothers.co.uk/restaurant/south-kensington/" target="blank">Visit website</a>',1],
+            ["Franco Manca",51.4925158,-0.1770853,"category1",'Free Beer Monday & Tuesday - use buzzword Brixton 2008 and show student ID </br><a href="http://www.francomanca.co.uk/student-drink-on-us-find-out-more/" target="blank">See T&Cs</a></p> <a href="http://www.francomanca.co.uk/restaurants/southkensington/" target="blank">Visit website</a>',1],
           ]
 
 
