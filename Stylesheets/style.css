@@ -21,6 +21,19 @@ h2 {
   text-align: justify;
 }
 
+.codefirst_logo img {
+  border: none;
+  display: block;
+   margin: 0 auto;
+}
+
+.instagram_logo img {
+  border: none;
+  display: block;
+   margin: 0 auto;
+}
+
+
 #map {
   height: calc(100vh - 90px);
   width: 100%;
