@@ -15,7 +15,7 @@ var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "
             ["Bosphorous Kebab",51.4930427,-0.1761608,"category2",'Best kebabs in West London</p> <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d1230593-Reviews-Bosphorus-London_England.html" target="blank">View on TripAdvisor</a>',0],
             ["The Sandwich Shop",51.4981083,-0.1841822,"category2",'This is run by the same people who run fusion 54, sells super cheap sandwiches and coffee</p> <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d1231278-Reviews-The_Sandwich_Shop-London_England.html" target="blank">View on TripAdvisor</a>',0],
             ["Wasabi",51.4936453,-0.1744723,"category1", 'Quick tasty sushi and hot bento, 50% all food half an hour before closing</p> <a href="https://wasabi.uk.com/branches/1315" target="blank">Visit website</a>',1],
-            ["Rocca",51.4928635,-0.1765615,"category1", 'Delicious pizza and pasta for under £10</p> <a href="http://www.roccarestaurants.com/south_ken.htm" target="blank">Visit website</a>',0]
+            ["Rocca",51.4928635,-0.1765615,"category1", 'Delicious pizza and pasta for under £10</p> <a href="http://www.roccarestaurants.com/south_ken.htm" target="blank">Visit website</a>',0],
           ]
 
 
