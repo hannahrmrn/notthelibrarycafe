@@ -12,15 +12,10 @@ var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "
             ["Wright Brothers Seafood & Oyster",51.493167,-0.176494,"category2",'Oysters for £1 3-6pm every day</p> <a href="http://thewrightbrothers.co.uk/restaurant/south-kensington/" target="blank">Visit website</a>',1],
             ["Franco Manca",51.4925158,-0.1770853,"category1",'Free Beer Monday & Tuesday - use buzzword Brixton 2008 and show student ID </br><a href="http://www.francomanca.co.uk/student-drink-on-us-find-out-more/" target="blank">See T&Cs</a></p> <a href="http://www.francomanca.co.uk/restaurants/southkensington/" target="blank">Visit website</a>',1],
             ["Ben's Cookies",51.4940179, -0.1742724,"category2",'Delicious cookies usually on a 4 for the price of 3 offer</p> <a href="http://www.benscookies.com/" target="blank">Visit website</a>',0],
-<<<<<<< HEAD
             ["Bosphorous Kebab",51.4930427,-0.1761608,"category2",'Best kebabs in West London</p> <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d1230593-Reviews-Bosphorus-London_England.html" target="blank">View on TripAdvisor</a>',0],
             ["The Sandwich Shop",51.4981083,-0.1841822,"category2",'This is run by the same people who run fusion 54, sells super cheap sandwiches and coffee</p> <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d1231278-Reviews-The_Sandwich_Shop-London_England.html" target="blank">View on TripAdvisor</a>',0],
             ["Wasabi",51.4936453,-0.1744723,"category1", 'Quick tasty sushi and hot bento, 50% all food half an hour before closing</p> <a href="https://wasabi.uk.com/branches/1315" target="blank">Visit website</a>',1],
             ["Rocca",51.4928635,-0.1765615,"category1", 'Delicious pizza and pasta for under £10</p> <a href="http://www.roccarestaurants.com/south_ken.htm" target="blank">Visit website</a>',0]
-=======
-            ["Bosphorous Kebab",51.4930427,-0.1761608,"category2",'Best kebabs in West London</p>',0],
-            ["The Sandwich Shop",51.4981083,-0.1841822,"category2",'This is run by the same people who run fusion 54, sells super cheap sandwiches and coffee</p>',0],
->>>>>>> bcf80569b548661f4575cc9a76705c160443aa60
           ]
 
 
