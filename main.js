@@ -195,6 +195,14 @@ var markerIcon = {
   labelOrigin: new google.maps.Point(0,0)
 };
 
+var markerIcon_zoom = {
+  url: './images/marker-flag.png',
+  scaledSize: new google.maps.Size(60, 60),
+  origin: new google.maps.Point(0, 0),
+  anchor: new google.maps.Point(60,60), //bottom right corner
+  labelOrigin: new google.maps.Point(0,0)
+};
+
 //Associate the styled map with the MapTypeId and set it to display.
 map.mapTypes.set('styled_map', styledMapType);
 map.setMapTypeId('styled_map');
@@ -223,6 +231,8 @@ for (i = 0; i < locations.length; i++) {
   newMarker.popupAdded = 1;
   newMarker.popup.close() //close all popups when change category
 
+  makeHover(newMarker,markerIcon,markerIcon_zoom)
+
   bounds.extend(
       new google.maps.LatLng(
         newMarker.position.lat(),
@@ -241,7 +251,19 @@ var categories = {
  2: 'category2',
 };
 
-function makePopups(m) {
+
+function makeHover(m,icon,icon_zoom) {
+  google.maps.event.addListener(m, 'mouseover', function() {
+  m.setIcon(icon_zoom);
+  });
+
+  google.maps.event.addListener(m, 'mouseout', function() {
+  m.setIcon(icon);
+  });
+
+}
+
+function makePopups(m,icon,icon_zoom) {
 
   if(m.popupAdded == 0){
   var desc = '<h2>' + m.name +'</h2>' + '</br><p>'+ m.description + '</p>';
@@ -252,6 +274,8 @@ function makePopups(m) {
   m.popup = infowindow; //add popup to list that we can retrieve later to close popups
 
   m.addListener('click', function() {
+    //setIconsSmall(icon); //sets all others temporarily to small
+
     closeAllPopups()
     infowindow.open(map, m);
     });
@@ -270,7 +294,7 @@ var bounds = new google.maps.LatLngBounds; //create new bounds object
 //decoupled popups from category selector
  for (i = 0; i < markers.length; i++) {
    var test = categories[category];
-   makePopups(markers[i]); //make popups currently includes popup and setvisible
+   makePopups(markers[i],markerIcon,markerIcon_zoom); //make popups currently includes popup and setvisible
    markers[i].popupAdded = 1;
    markers[i].popup.close() //close all popups when change category
 
@@ -297,6 +321,14 @@ function closeAllPopups() {
   //loops through table and closes all popups
    for (i = 0; i < markers.length; i++) {
      markers[i].popup.close() //close all popups when change category
+   }
+
+}
+
+function setIconsSmall(icon) {
+  //loops through table and closes all popups
+   for (i = 0; i < markers.length; i++) {
+     markers[i].setIcon(icon);//set all others to small (can still be moused over)
    }
 
 }
