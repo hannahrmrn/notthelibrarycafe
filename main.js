@@ -198,9 +198,9 @@ var markerIcon = {
 
 var markerIcon_zoom = {
   url: './images/marker-flag.png',
-  scaledSize: new google.maps.Size(60, 60),
+  scaledSize: new google.maps.Size(50, 50),
   origin: new google.maps.Point(0, 0),
-  anchor: new google.maps.Point(60,60), //bottom right corner
+  anchor: new google.maps.Point(50,50), //bottom right corner
   labelOrigin: new google.maps.Point(0,0)
 };
 
