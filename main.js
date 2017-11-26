@@ -17,6 +17,7 @@ var locations  = [["Odonno's Gelati", 51.49362191787874, -0.17623186111450195, "
             ["Wasabi",51.4936453,-0.1744723,"category1", 'Quick tasty sushi and hot bento, 50% all food half an hour before closing</p> <a href="https://wasabi.uk.com/branches/1315" target="blank">Visit website</a>',1],
             ["Rocca",51.4928635,-0.1765615,"category1", 'Delicious pizza and pasta for under £10</p> <a href="http://www.roccarestaurants.com/south_ken.htm" target="blank">Visit website</a>',0],
             ["Chopstix",51.4943674,-0.1736893,"category1", 'Simple, classic Chinese rice and noodle dishes for £4-8</p> <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d6874045-Reviews-Chopstix_Noodle_Bar-London_England.html" target="blank">View on TripAdvisor</a>',0],
+            ["Fulham Tarts",51.4784178,-0.1698522,"category1", 'Delicious iced cofee and various salads </p> <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d7607262-Reviews-Fulham_Tarts-London_England.html" target="blank">View on TripAdvisor</a>',0]
           ]
 
 
