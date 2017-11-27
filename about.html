@@ -1,81 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Not the Library Cafe</title>
-    <!--link rel="stylesheet" type="text/css" href="INSERTSTYLESHEETLINK"-->
+<head>
+	<title>Not the Library Cafe</title><!--link rel="stylesheet" type="text/css" href="INSERTSTYLESHEETLINK"-->
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"><!---Open source font from google=-->
+	<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet"><!--Custom Stylesheet (ours)-->
+	<link href='./Stylesheets/style.css' rel='stylesheet' type='text/css'><!--Bootstrap CSS-->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"><!--JQuery JS for Bootstrap -->
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!---Open source font from google--->
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-    <!--Custom Stylesheet (ours)-->
-    <link rel='stylesheet' type='text/css' href='./Stylesheets/style.css'>
-    <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <!--JQuery JS for Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-
-      <a class="navbar-brand" href="./index.html"><img src="./images/logo.png" alt="notthelibrarycafe" style="max-width:200px; margin-top: 7px;" ></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="./featured.html">Featured</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contribute</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="./findpoint.html">Add a place (students)</a>
-              <a class="dropdown-item" href="./establishments.html">Get involved (businesses)</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./about.html">About</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-  <div class="container-fluid text-justified">
-      <br>
-
-      <h1>Welcome to our website</h1>
-
-      <br>
-
-      <p> Are you tired of the food choices that Imperial outlets have to offer? We were, and that is why we decided to make <b>'Not The Library Cafe'</b>. Imperial is set in such a wonderful area with some truly amazing food outlets dotted amongst the tourist attractions and, with the help of our Imperial community, we hope to build a bible of the best bites around! So, <b>Imperial-ites</b>, if you have happened upon any mind-blowing munches then let us know on the <a href="https://hannahrmrn.github.io/notthelibrarycafe/findpoint.html">'Add a place'</a> page.</p>
-
-      <br>
-
-      <p> For any <b>businesses</b> out there looking to promote your next-level nosh or offer discounts to savvy students then we want to know! Please head over to our <a href="https://hannahrmrn.github.io/notthelibrarycafe/establishments.html">'Get involved'</a> page!</p>
-
-      <br>
-
-      <p>This project is the brainchild of 4 Imperial College London students who learnt to code thanks to CodeFirst:Girls. By attending the beginners HTML/CSS/JavaScript course, we gained the skills necessary to bring this project to life. If you'd like to make something as cool (or possibly cooler) than this, why not check them out and sign up for one of their <b>FREE</b> community courses: <p>
-
-      	<div class="codefirst_logo">
-      		<a href="http://www.codefirstgirls.org.uk">
-      		<img src="./images/codefirst-logo.png" alt="Go to CodeFirst:Girls!" align="middle" width="40%" height="5%">
-      	</div>
-
-  </div>
-
-
-  </body>
-
-
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
+	</script>
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<a class="navbar-brand" href="./index.html"><img alt="notthelibrarycafe" src="./images/logo.png" style="max-width:200px; margin-top: 7px;"></a> <button aria-controls="navbar" aria-expanded="false" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+		<div class="navbar-collapse collapse" id="navbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="./featured.html">Featured</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdown03">Contribute</a>
+					<div aria-labelledby="dropdown03" class="dropdown-menu">
+						<a class="dropdown-item" href="./findpoint.html">Add a place (students)</a> <a class="dropdown-item" href="./establishments.html">Get involved (businesses)</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./about.html">About</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid text-justified">
+		<br>
+		<h1>Welcome to our website</h1><br>
+		<p>Are you tired of the food choices that Imperial outlets have to offer? We were, and that is why we decided to make <b>'Not The Library Cafe'</b>. Imperial is set in such a wonderful area with some truly amazing food outlets dotted amongst the tourist attractions and, with the help of our Imperial community, we hope to build a bible of the best bites around! So, <b>Imperial-ites</b>, if you have happened upon any mind-blowing munches then let us know on the <a href="https://hannahrmrn.github.io/notthelibrarycafe/findpoint.html">'Add a place'</a> page.</p><br>
+		<p>For any <b>businesses</b> out there looking to promote your next-level nosh or offer discounts to savvy students then we want to know! Please head over to our <a href="https://hannahrmrn.github.io/notthelibrarycafe/establishments.html">'Get involved'</a> page!</p><br>
+		<p>This project is the brainchild of 4 Imperial College London students who learnt to code thanks to CodeFirst:Girls. By attending the beginners HTML/CSS/JavaScript course, we gained the skills necessary to bring this project to life. If you'd like to make something as cool (or possibly cooler) than this, why not check them out and sign up for one of their <b>FREE</b> community courses:</p>
+		<p></p>
+		<div class="codefirst_logo">
+			<a href="http://www.codefirstgirls.org.uk"><img align="middle" alt="Go to CodeFirst:Girls!" height="5%" src="./images/codefirst-logo.png" width="40%"></a>
+		</div>
+	</div>
+</body>
 </html>
