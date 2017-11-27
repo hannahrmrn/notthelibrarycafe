@@ -22,6 +22,8 @@ var markers = [];
 var i, newMarker;
 var globalmap; //so can getmap later
 var globalbounds;
+var mIcon;
+var mIcon_zoom;
 
 function initMap() {
 	var styledMapType = new google.maps.StyledMapType(
@@ -141,6 +143,7 @@ function initMap() {
 		anchor: new google.maps.Point(40, 40),
 		labelOrigin: new google.maps.Point(0, 0)
 	};
+	mIcon = markerIcon;
 	var markerIcon_zoom = {
 		url: './images/marker-flag.png',
 		scaledSize: new google.maps.Size(50, 50),
@@ -148,6 +151,7 @@ function initMap() {
 		anchor: new google.maps.Point(50, 50), //bottom right corner
 		labelOrigin: new google.maps.Point(0, 0)
 	};
+	markerIcon = markerIcon_zoom;
 	//Associate the styled map with the MapTypeId and set it to display.
 	map.mapTypes.set('styled_map', styledMapType);
 	map.setMapTypeId('styled_map');
@@ -217,7 +221,7 @@ function displayMarkers(category) {
 	//decoupled popups from category selector
 	for (i = 0; i < markers.length; i++) {
 		var test = categories[category];
-		makePopups(markers[i], markerIcon, markerIcon_zoom); //make popups currently includes popup and setvisible
+		makePopups(markers[i], mIcon, mIcon_zoom); //make popups currently includes popup and setvisible
 		markers[i].popupAdded = 1;
 		markers[i].popup.close() //close all popups when change category
 		if (markers[i].category === test) {

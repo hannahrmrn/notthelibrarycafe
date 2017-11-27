@@ -39,6 +39,9 @@ h2 {
 	z-index: 2;
 	margin: 0 auto;
 }
+ul.navbar-nav {
+	padding-top: 12px;
+}
 ul.navbar-nav a:hover {
 	background-color: #000000 !important;
 	color: #f2f2f2 !important;
@@ -47,15 +50,15 @@ ul.navbar-nav a:hover {
 	font-family: 'Special Elite' !important;
 }
 .btn-custom {
-	background-color: #f2f2f2;
-	border-color: #f2f2f2;
-	color: #404040 !important;
+	background-color: #404040;
+	border-color: #202020;
+	color: #ffffff !important;
 }
 .btn-custom:hover, .btn-custom:focus, .btn-custom.active {
 	box-shadow: none !important;
-	background-color: #e5e5e5;
-	border-color: #d9d9d9;
-	color: #404040 !important;
+	background-color: #303030;
+	border-color: #202020;
+	color: #ffffff !important;
 }
 .btn-custom.disabled:hover, .btn-custom.disabled:focus, .btn-custom.disabled:active, .btn-custom.disabled.active, .btn-custom[disabled]:hover, .btn-custom[disabled]:focus, .btn-custom[disabled]:active, .btn-custom[disabled].active, fieldset[disabled] .btn-custom:hover, fieldset[disabled] .btn-custom:focus, fieldset[disabled] .btn-custom:active, fieldset[disabled] .btn-custom.active {
 	background-color: #e6e6e6;
