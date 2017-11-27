@@ -1,82 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Not the Library Cafe</title>
-    <!--link rel="stylesheet" type="text/css" href="INSERTSTYLESHEETLINK"-->
+<head>
+	<title>Not the Library Cafe</title><!--link rel="stylesheet" type="text/css" href="INSERTSTYLESHEETLINK"-->
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"><!---Open source font from google=-->
+	<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet"><!--Custom Stylesheet (ours)-->
+	<link href='./Stylesheets/style.css' rel='stylesheet' type='text/css'><!--Bootstrap CSS-->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"><!--JQuery JS for Bootstrap -->
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!---Open source font from google--->
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-    <!--Custom Stylesheet (ours)-->
-    <link rel='stylesheet' type='text/css' href='./Stylesheets/style.css'>
-    <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <!--JQuery JS for Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-
-      <a class="navbar-brand" href="./index.html"><img src="./images/logo.png" alt="notthelibrarycafe" style="max-width:200px; margin-top: 7px;" ></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="./featured.html">Featured</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contribute</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="./findpoint.html">Add a place (students)</a>
-              <a class="dropdown-item" href="./establishments.html">Get involved (businesses)</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./about.html">About</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-  <div class="container-fluid">
-  <div class="row">
-  <div class="col-sm-9" id = "map"></div>
-  <div class="col-sm-3 text-justified">
-      <form>
-      <div class="form-group" action="/action_page.php" method="post">
-      <h2>Current Latitude & Longitude:</br></h2>
-      <p id = "latlng" name = "position"></br></p>
-          <label for="placename">Place Name</label>
-          <input type="placename" class="form-control" id="placename" name = "placename">
-        </div>
-        <div class="form-group">
-          <label for="placedesc">Place Description</label>
-          <input type="placedesc" class="form-control" id="placedesc" name = "placedesc">
-        </div>
-        <button type="submit" class="btn btn-custom">Submit</button>
-      </form>
-  </div>
-  </div>
-</div>
-
-    <script src = "./select_place.js" > </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL8uZACjkHMb32pPJbdmprNKSWVa02EQo&callback=initMap">
-    </script>
-
-  </body>
-
-
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
+	</script>
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<a class="navbar-brand" href="./index.html"><img alt="notthelibrarycafe" src="./images/logo.png" style="max-width:200px; margin-top: 7px;"></a> <button aria-controls="navbar" aria-expanded="false" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+		<div class="navbar-collapse collapse" id="navbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="./featured.html">Featured</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdown03">Contribute</a>
+					<div aria-labelledby="dropdown03" class="dropdown-menu">
+						<a class="dropdown-item" href="./findpoint.html">Add a place (students)</a> <a class="dropdown-item" href="./establishments.html">Get involved (businesses)</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./about.html">About</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-9" id="map"></div>
+			<div class="col-sm-3 text-justified">
+				<form>
+					<div class="form-group">
+						<h2>Current Latitude & Longitude:<br></h2>
+						<p id="latlng"><br></p><label for="placename">Place Name</label> <input class="form-control" id="placename" name="placename" type="placename">
+					</div>
+					<div class="form-group">
+						<label for="placedesc">Place Description</label> <input class="form-control" id="placedesc" name="placedesc" type="placedesc">
+					</div><button class="btn btn-custom" type="submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="./select_place.js">
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL8uZACjkHMb32pPJbdmprNKSWVa02EQo&callback=initMap">
+	</script>
+</body>
 </html>
