@@ -23,6 +23,7 @@ var markers = [];
 var i, newMarker;
 var globalmap; //so can getmap later
 var globalbounds;
+var g_marker,g_marker_zoom;
 
 function initMap() {
   var styledMapType = new google.maps.StyledMapType(
@@ -194,6 +195,8 @@ var markerIcon = {
   labelOrigin: new google.maps.Point(0,0)
 };
 
+g_marker = markerIcon; //workaround for setting variable to global (again)
+
 var markerIcon_zoom = {
   url: './images/marker-flag.png',
   scaledSize: new google.maps.Size(50, 50),
@@ -201,6 +204,8 @@ var markerIcon_zoom = {
   anchor: new google.maps.Point(50,50), //bottom right corner
   labelOrigin: new google.maps.Point(0,0)
 };
+
+g_marker_zoom = markerIcon_zoom;
 
 //Associate the styled map with the MapTypeId and set it to display.
 map.mapTypes.set('styled_map', styledMapType);
@@ -286,6 +291,8 @@ function setvis(m,v) {
   m.setVisible(v);
 }
 
+
+
 //triggered when changing category
 function displayMarkers(category) {
 var bounds = new google.maps.LatLngBounds; //create new bounds object
@@ -293,7 +300,7 @@ var bounds = new google.maps.LatLngBounds; //create new bounds object
 //decoupled popups from category selector
  for (i = 0; i < markers.length; i++) {
    var test = categories[category];
-   makePopups(markers[i],markerIcon,markerIcon_zoom); //make popups currently includes popup and setvisible
+   makePopups(markers[i],g_marker,g_marker_zoom); //make popups currently includes popup and setvisible
    markers[i].popupAdded = 1;
    markers[i].popup.close() //close all popups when change category
 
